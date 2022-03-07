@@ -1,6 +1,6 @@
 package main
 
-import "rijn/clouds/cmd"
+import "github.com/olimpias/rijn/clouds/cmd"
 
 func main() {
 	cmd.Execute()
