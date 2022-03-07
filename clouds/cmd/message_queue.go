@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"rijn/clouds/gcd/pubsub"
-	"rijn/log"
+	"github.com/olimpias/rijn/clouds/gcd/pubsub"
+	"github.com/olimpias/rijn/log"
 
 	"github.com/spf13/cobra"
 )

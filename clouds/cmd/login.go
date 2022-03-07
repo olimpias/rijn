@@ -2,7 +2,8 @@ package cmd
 
 import (
 	"fmt"
-	"rijn/clouds/gcd/login"
+
+	"github.com/olimpias/rijn/clouds/gcd/login"
 
 	"github.com/spf13/cobra"
 )

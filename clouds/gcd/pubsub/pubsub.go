@@ -4,7 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"rijn/log"
+
+	"github.com/olimpias/rijn/log"
 
 	"cloud.google.com/go/pubsub"
 )
