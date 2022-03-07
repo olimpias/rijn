@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"rijn/log"
 
 	"cloud.google.com/go/pubsub"
 )
@@ -63,11 +64,11 @@ func (cmd *MoveCmd) Execute(ctx context.Context) error {
 	if err := cmd.subscriberClient.Subscription(cmd.Subscription).Receive(ctx, func(ctx context.Context, message *pubsub.Message) {
 		result := publisherTopic.Publish(ctx, message)
 		if _, err := result.Get(ctx); err != nil {
-			panic(fmt.Sprintf("unable to publish message to the topic err %s", err))
+			log.Fatal(fmt.Sprintf("unable to publish message to the topic err %s", err))
 		}
 		message.Ack()
 	}); err != nil {
-		panic(fmt.Sprintf("unable to perform subscription err %s", err))
+		return fmt.Errorf("unable to perform subscription err %w", err)
 	}
 
 	return nil

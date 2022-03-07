@@ -1,10 +1,10 @@
 # Rijn
 
-Rijn is a cli tool that allows you to move message from message broker's subscription to another message broker's topic. 
+Rijn is a cli tool that allows you to move a message from one message broker's subscription to another message broker's topic. 
 
 Currently its only support pubsub. It could be quite handy when you want to move from especially from dead letter subscription into actual topic.
 
-Rijn comes from the name of the [Rhine](https://en.wikipedia.org/wiki/Rhine). Purpose of this tool to move the message from one place to another, like the actualy river that moves water from The Nederlands to Switzerland. 
+Rijn comes from the name of the [Rhine](https://en.wikipedia.org/wiki/Rhine). The purpose of this tool to move a message from one place to another, like the actually Rhine that carries water from The Nederlands to Switzerland. 
 
 ## Installation
 
@@ -16,7 +16,7 @@ Rijn comes from the name of the [Rhine](https://en.wikipedia.org/wiki/Rhine). Pu
 
 ### Login-Gcd
 
-Allows you to auth login into gcd. It will pop up web browser and once you login, it will save your credentials into application default path
+Allows you to auth login into gcd. It will pop up web browser and once you log in, it will save your credentials into application default path
 
 Use the following command to run it.
 
@@ -26,11 +26,11 @@ rijn login-gcd
 
 ### Pubsub
 
-Allows you to move pubsub message from one subscription to another subscription in same projectID. Before using this command, its mandatory to login either using `rijn login-gcd` or default terminal `gcloud` command. The credential must be in application default path
+Allows you to moves a pubsub message from one subscription to another subscription in the same projectID. Before using this command, its mandatory to log in either using `rijn login-gcd` or default terminal `gcloud` command. The credential must be in application default path
 
 | Flag              | Description, example                                     |
 |-------------------|----------------------------------------------------------|
-| `-pId project-id` | String value that is locates your topic and subscription |
+| `-p project-id`   | String value that is locates your topic and subscription |
 | `-s subscription` | Source of the messages that you want to move from        |
 | `-t topic`        | Destination of the messages that you want to move to     |
 
@@ -39,7 +39,7 @@ Allows you to move pubsub message from one subscription to another subscription 
 Below examples consume messages from `projects/testing/subscriptions/source-subscription` and pushes them to `projects/testing/topics/destination-topic`
 
 ```
-rijn pubsub -pId testing -s source-subscription -t destination-topic
+rijn pubsub -p testing -s source-subscription -t destination-topic
 ```
 
 ### Future Plans
