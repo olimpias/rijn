@@ -28,22 +28,23 @@ rijn login-gcd
 
 Allows you to moves a pubsub message from one subscription to another subscription in the same projectID. Before using this command, its mandatory to log in either using `rijn login-gcd` or default terminal `gcloud` command. The credential must be in application default path
 
-| Flag              | Description, example                                     |
-|-------------------|----------------------------------------------------------|
-| `-p project-id`   | String value that is locates your topic and subscription |
-| `-s subscription` | Source of the messages that you want to move from        |
-| `-t topic`        | Destination of the messages that you want to move to     |
+| Flag                       | Description, example                                 |
+|----------------------------|------------------------------------------------------|
+| `-c subscriptionProjectId` | Project ID value for your subscription               |
+| `-p topicProjectId`        | Project ID value for your topic                      |
+| `-s subscription`          | Source of the messages that you want to move from    |
+| `-t topic`                 | Destination of the messages that you want to move to |
 
 ##### Example
 
 Below examples consume messages from `projects/testing/subscriptions/source-subscription` and pushes them to `projects/testing/topics/destination-topic`
 
 ```
-rijn pubsub -p testing -s source-subscription -t destination-topic
+rijn pubsub --subscriptionProjectId testing --topicProjectId testing  -s source-subscription -t destination-topic
 ```
 
 ### Future Plans
-- [ ] Support different projectIds for subscription and topic
+- [X] Support different projectIds for subscription and topic
 - [ ] Add more configuration option for pubsub
 - [ ] Add `brew` support
 - [ ] Add support for AWS SQS
