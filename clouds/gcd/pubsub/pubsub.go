@@ -17,14 +17,19 @@ type MoveCmd struct {
 }
 
 type Config struct {
-	Topic        string
-	Subscription string
-	ProjectID    string
+	Topic                 string
+	Subscription          string
+	TopicProjectID        string
+	SubscriptionProjectID string
 }
 
 func (c Config) Validate() error {
-	if c.ProjectID == "" {
-		return errors.New("projectID is empty")
+	if c.TopicProjectID == "" {
+		return errors.New("topic projectID is empty")
+	}
+
+	if c.SubscriptionProjectID == "" {
+		return errors.New("subscription projectID is empty")
 	}
 
 	if c.Subscription == "" {
@@ -43,12 +48,12 @@ func NewMoveCmd(ctx context.Context, config Config) (*MoveCmd, error) {
 		return nil, fmt.Errorf("unable to validate config err:%w", err)
 	}
 
-	subscriberClient, err := pubsub.NewClient(ctx, config.ProjectID)
+	subscriberClient, err := pubsub.NewClient(ctx, config.SubscriptionProjectID)
 	if err != nil {
 		return nil, fmt.Errorf("unable to create subscriber client err:%w", err)
 	}
 
-	publisherClient, err := pubsub.NewClient(ctx, config.ProjectID)
+	publisherClient, err := pubsub.NewClient(ctx, config.TopicProjectID)
 	if err != nil {
 		return nil, fmt.Errorf("unable to create publisher client err:%w", err)
 	}

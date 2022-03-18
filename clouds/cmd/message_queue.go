@@ -37,7 +37,8 @@ var pubsubCmd = &cobra.Command{
 }
 
 func init() {
-	pubsubCmd.PersistentFlags().StringVarP(&config.ProjectID, "project-id", "p", "", "project Id")
+	pubsubCmd.PersistentFlags().StringVarP(&config.TopicProjectID, "topicProjectId", "p", "", "topic project Id")
+	pubsubCmd.PersistentFlags().StringVarP(&config.SubscriptionProjectID, "subscriptionProjectId", "c", "", "subscription project Id")
 	pubsubCmd.PersistentFlags().StringVarP(&config.Topic, "topic", "t", "", "topic name")
 	pubsubCmd.PersistentFlags().StringVarP(&config.Subscription, "subscription", "s", "", "subscription name")
 	rootCmd.AddCommand(pubsubCmd)
