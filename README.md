@@ -37,10 +37,10 @@ Allows you to moves a pubsub message from one subscription to another subscripti
 
 ##### Example
 
-Below examples consume messages from `projects/testing/subscriptions/source-subscription` and pushes them to `projects/testing/topics/destination-topic`
+Below examples consume messages from `projects/testing1/subscriptions/source-subscription` and pushes them to `projects/testing2/topics/destination-topic`
 
 ```
-rijn pubsub --subscriptionProjectId testing --topicProjectId testing  -s source-subscription -t destination-topic
+rijn pubsub --subscriptionProjectId testing1 --topicProjectId testing2  -s source-subscription -t destination-topic
 ```
 
 ### Future Plans
